@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Pressable, Switch, Text, View } from "react-native";
+import { Button, Pressable, Switch, Text, View, Image } from "react-native";
 
 function HomeScreen() {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -28,6 +28,14 @@ function HomeScreen() {
       <Pressable onPress={onPressFunction}>
         <Text>I'm pressable!</Text>
       </Pressable>
+
+      <Image
+       style={{
+        height: 150,
+        width: 150,
+       }}
+        source={require('../assets/images/google.png')}
+      />
     </View>
   );
 }

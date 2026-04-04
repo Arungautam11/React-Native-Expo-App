@@ -1,7 +1,10 @@
+import Header from "@/components/Header";
 import Colors from "@/constants/Colors";
-import React from "react";
+import { TASKS } from "@/constants/Tasks";
+import { Text } from "@react-navigation/elements";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { FlatList, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Index = () => {
@@ -9,7 +12,23 @@ const Index = () => {
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar style="light" />
-      <Text>Index</Text>
+      <FlatList
+        data={TASKS}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Text>{item.title}</Text>}
+        ListHeaderComponent={
+          <>
+            {/* Header */}
+            <Header />
+
+            {/* DateSelector */}
+
+            {/* FiltersTabs */}
+          </>
+        }
+        contentContainerStyle={styles.list}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
@@ -20,5 +39,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+  },
+  list: {
+    paddingBottom: 24,
   },
 });

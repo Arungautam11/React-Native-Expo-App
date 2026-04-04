@@ -2,15 +2,16 @@ import DateSelector from "@/components/DateSelector";
 import FilterTabs from "@/components/FilterTabs";
 import Header from "@/components/Header";
 import Colors from "@/constants/Colors";
-import { TASKS } from "@/constants/Tasks";
+import { FilterOptions, TASKS } from "@/constants/Tasks";
 import { Text } from "@react-navigation/elements";
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Index = () => {
   const insets = useSafeAreaInsets();
+  const [activeFilter, setActiveFilter] = useState<FilterOptions>("All");
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar style="light" />
@@ -27,7 +28,7 @@ const Index = () => {
             <DateSelector />
 
             {/* FilterTabs */}
-            <FilterTabs />
+            <FilterTabs selected={activeFilter} onSelect={setActiveFilter} />
           </>
         }
         contentContainerStyle={styles.list}

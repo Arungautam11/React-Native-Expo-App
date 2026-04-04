@@ -1,3 +1,5 @@
+import DateSelector from "@/components/DateSelector";
+import FilterTabs from "@/components/FilterTabs";
 import Header from "@/components/Header";
 import Colors from "@/constants/Colors";
 import { TASKS } from "@/constants/Tasks";
@@ -22,8 +24,10 @@ const Index = () => {
             <Header />
 
             {/* DateSelector */}
+            <DateSelector />
 
-            {/* FiltersTabs */}
+            {/* FilterTabs */}
+            <FilterTabs />
           </>
         }
         contentContainerStyle={styles.list}

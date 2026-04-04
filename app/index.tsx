@@ -1,9 +1,9 @@
 import DateSelector from "@/components/DateSelector";
 import FilterTabs from "@/components/FilterTabs";
 import Header from "@/components/Header";
+import TaskCard from "@/components/TaskCard";
 import Colors from "@/constants/Colors";
 import { FilterOptions, TASKS } from "@/constants/Tasks";
-import { Text } from "@react-navigation/elements";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
@@ -18,7 +18,7 @@ const Index = () => {
       <FlatList
         data={TASKS}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
+        renderItem={({ item }) => <TaskCard task={item} />}
         ListHeaderComponent={
           <>
             {/* Header */}

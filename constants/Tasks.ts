@@ -51,9 +51,9 @@ export const TASKS: Task[] = [
 
 export const FILTER_OPTIONS = [
   "All",
-  "To do",
+  "To-do",
   "In Progress",
-  "Completed",
+  "Done",
 ] as const;
 
 export type FilterOptions = (typeof FILTER_OPTIONS)[number];

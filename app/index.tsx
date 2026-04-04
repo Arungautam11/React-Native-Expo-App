@@ -12,11 +12,17 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 const Index = () => {
   const insets = useSafeAreaInsets();
   const [activeFilter, setActiveFilter] = useState<FilterOptions>("All");
+
+  // Function filter to tasks */
+  const filteredTasks = TASKS.filter((task) => {
+    if (activeFilter === "All") return true;
+    return task.status === activeFilter;
+  });
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar style="light" />
       <FlatList
-        data={TASKS}
+        data={filteredTasks} // Apply filter to tasks */
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <TaskCard task={item} />}
         ListHeaderComponent={

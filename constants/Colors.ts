@@ -1,6 +1,7 @@
 const Colors = {
   background: "#09090b",
   surface: "#18181b",
+  backgroundSurface: "#393E46",
   surfaceLight: "#27272a",
   border: "#3f3f46",
 
